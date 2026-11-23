@@ -90,19 +90,27 @@ Exemple:
 
 
 def add_student_by_value(list_students, new_student):
-    # Write here your code
-    pass
+    llista_resultat=[]
+    # Important a continuació, si simplement es duplica llista_resultat = list_students
+    # estariem fent que les dues variables apuntin a la mateixa direcció de memòria
+    # que faria que ho seguíssim passant de referència
+    for estudiant in list_students:
+        llista_resultat.append(estudiant)
+    llista_resultat.append(new_student)
+    return llista_resultat
 
 
 def add_student_by_reference(list_students, new_student):
-    # Write here your code
-    pass
+    list_students.append(new_student)
 
 
 def main(list_students, new_student_by_value, new_student_by_reference):
-    # Write here your code
-    pass
-
+    print(f"Original student list {list_students}")
+    print(f"Student list by value {add_student_by_value(list_students, new_student_by_value)}")
+    add_student_by_reference(list_students, new_student_by_reference)
+    print(f"Student list by reference {list_students}")
+    print(f"Original student list {list_students}")
+    return list_students
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
