@@ -50,14 +50,17 @@ Exemple:
      Resultat:
      - En el primer cas el resultat és: "Notebook"
      - En el segon cas, el resultat és: "L'específic index és de la llista d'articles_list"
-     - En cas d'un error inesperat, ha de retornar: "An unexpected error has passat: {error}"
+     - En cas d'un error inesperat, ha de retornar: "An unexpected error has occurred: {error}"
 """
 
 
 def get_element_from_list(items_list, index) -> str:
-    # Write here your code
-    pass
-
+    try:
+        return items_list[index] 
+    except IndexError:
+        return "The specified index is out of the items_list's range"
+    except Exception as error:
+        return "An unexpected error has occurred: " + str(type(error))[8:-2]
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
